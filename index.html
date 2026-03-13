@@ -1,0 +1,1169 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zuniversz.id - JASTEB & UNCHECK</title>
+
+<style>
+
+:root{
+--primary:#6366f1;
+--secondary:#c084fc;
+--accent:#facc15;
+--dark:#0f172a;
+--card:#1e293b;
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Segoe UI,system-ui;
+}
+
+body{
+background:linear-gradient(135deg,#0f172a,#020617);
+color:white;
+overflow-x:hidden;
+position:relative;
+min-height:100vh;
+}
+
+#particles{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+z-index:-1;
+background:#020617;
+}
+
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px 5%;
+border-bottom:1px solid #334155;
+background:#020617cc;
+backdrop-filter:blur(10px);
+animation:fadeDown 1s ease;
+}
+
+.logo{
+font-size:20px;
+font-weight:700;
+color:#a78bfa;
+letter-spacing:1px;
+}
+
+.hero{
+padding:30px 20px;
+text-align:center;
+}
+
+.slider{
+max-width:1100px;
+margin:auto;
+overflow:hidden;
+border-radius:20px;
+position:relative;
+animation:zoomIn 1.2s ease;
+box-shadow:0 0 40px rgba(99,102,241,0.2);
+}
+
+.slides{
+display:flex;
+gap:14px;
+transition:transform .6s ease;
+}
+
+.slide{
+min-width:100%;
+}
+
+.slide img{
+width:100%;
+height:auto;
+object-fit:contain;
+border-radius:20px;
+}
+
+.arrow{
+position:absolute;
+top:50%;
+transform:translateY(-50%);
+font-size:24px;
+padding:8px 12px;
+cursor:pointer;
+color:white;
+background:rgba(0,0,0,0.4);
+border-radius:50%;
+}
+
+.arrow.left{left:10px;}
+.arrow.right{right:10px;}
+
+.dots{
+text-align:center;
+margin-top:10px;
+}
+
+.dot{
+height:8px;
+width:8px;
+margin:4px;
+background:#475569;
+display:inline-block;
+border-radius:50%;
+}
+
+.dot.active{
+background:#a78bfa;
+}
+
+.hero h1{
+font-size:32px;
+margin-top:20px;
+background:linear-gradient(90deg,#818cf8,#c084fc,#f472b6);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+animation:fadeUp 1.2s ease;
+}
+
+.hero p{
+margin:10px 0 20px;
+color:#94a3b8;
+font-size:14px;
+animation:fadeUp 1.3s ease;
+}
+
+.btn{
+padding:12px 28px;
+border-radius:40px;
+background:linear-gradient(90deg,#6366f1,#a78bfa);
+text-decoration:none;
+color:white;
+font-weight:600;
+box-shadow:0 0 15px #6366f1;
+animation:fadeUp 1.4s ease;
+}
+
+.products{
+padding:40px 5%;
+}
+
+.section-title{
+text-align:center;
+font-size:26px;
+margin-bottom:30px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:18px;
+}
+
+.card{
+background:linear-gradient(145deg,#1e293b,#020617);
+padding:22px 16px;
+border-radius:18px;
+text-align:center;
+border:1px solid #334155;
+transition:0.3s;
+display:flex;
+flex-direction:column;
+align-items:center;
+backdrop-filter:blur(12px);
+opacity:0;
+transform:translateY(40px);
+animation:fadeUp 0.8s ease forwards;
+}
+
+.center-card{
+grid-column:1 / span 2;
+max-width:270px;
+margin:auto;
+}
+
+.best-deal{
+position:relative;
+transform:scale(1.05);
+border:1px solid #facc15;
+box-shadow:0 0 25px rgba(250,204,21,0.5);
+}
+
+.best-deal:hover{
+transform:scale(1.1) translateY(-6px);
+box-shadow:0 0 40px rgba(250,204,21,0.8);
+}
+
+.badge{
+position:absolute;
+top:-10px;
+left:50%;
+transform:translateX(-50%);
+background:linear-gradient(90deg,#facc15,#f59e0b);
+color:#000;
+font-size:12px;
+font-weight:700;
+padding:5px 12px;
+border-radius:20px;
+box-shadow:0 0 15px #facc15;
+}
+
+.card:nth-child(1){animation-delay:0.2s;}
+.card:nth-child(2){animation-delay:0.4s;}
+.card:nth-child(3){animation-delay:0.6s;}
+.card:nth-child(4){animation-delay:0.8s;}
+
+.card:hover{
+transform:translateY(-8px) scale(1.05);
+box-shadow:0 0 35px #6366f1;
+}
+
+.card img{
+width:95px;
+margin-bottom:14px;
+}
+
+.card-title{
+font-size:16px;
+font-weight:700;
+margin-bottom:10px;
+}
+
+.card-desc{
+font-size:13px;
+color:#94a3b8;
+margin-bottom:14px;
+}
+
+.price{
+font-size:18px;
+color:#facc15;
+font-weight:700;
+margin-bottom:12px;
+}
+
+.btn-buy{
+width:100%;
+padding:11px;
+border:none;
+border-radius:10px;
+background:linear-gradient(90deg,#6366f1,#c084fc);
+color:white;
+font-weight:600;
+cursor:pointer;
+transition:0.3s;
+box-shadow:0 0 10px #6366f1;
+}
+
+.btn-buy:hover{
+box-shadow:0 0 25px #a78bfa;
+transform:scale(1.05);
+}
+
+.testimoni{
+padding:40px 5%;
+}
+
+.modal{
+display:none;
+position:fixed;
+left:0;
+top:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.85);
+align-items:center;
+justify-content:center;
+}
+
+.modal-content{
+background:#1e293b;
+padding:25px;
+border-radius:16px;
+text-align:center;
+max-width:350px;
+width:90%;
+position:relative;
+animation:zoomIn 0.5s ease;
+}
+
+.close-btn{
+position:absolute;
+right:15px;
+top:10px;
+font-size:22px;
+cursor:pointer;
+}
+
+.qr-image{
+width:190px;
+margin:15px 0;
+border-radius:10px;
+box-shadow:0 0 20px #c084fc;
+}
+
+.modal-btn{
+padding:11px 22px;
+border:none;
+background:#6366f1;
+color:white;
+border-radius:8px;
+cursor:pointer;
+}
+
+
+footer{
+text-align:center;
+padding:35px;
+border-top:1px solid #334155;
+color:#64748b;
+margin-top:40px;
+font-size:14px;
+}
+
+.shopee-popup{
+position:fixed;
+left:20px;
+bottom:20px;
+background:#1e293b;
+border-radius:12px;
+padding:12px 14px;
+display:flex;
+gap:10px;
+align-items:center;
+box-shadow:0 0 20px rgba(0,0,0,0.5);
+border:1px solid #334155;
+font-size:13px;
+animation:slidePopup .5s ease;
+z-index:999;
+max-width:260px;
+}
+
+.popup-icon{
+font-size:18px;
+}
+
+@keyframes slidePopup{
+from{transform:translateX(-30px);opacity:0;}
+to{transform:translateX(0);opacity:1;}
+}
+
+@keyframes fadeUp{
+0%{opacity:0;transform:translateY(40px);}
+100%{opacity:1;transform:translateY(0);}
+}
+
+@keyframes fadeDown{
+0%{opacity:0;transform:translateY(-30px);}
+100%{opacity:1;transform:translateY(0);}
+}
+
+
+@keyframes zoomIn{
+0%{opacity:0;transform:scale(0.9);}
+100%{opacity:1;transform:scale(1);}
+}
+
+/* ===== FAQ CSS ===== */
+
+.faq-container{
+max-width:850px;
+margin:auto;
+}
+
+.faq-item{
+background:rgba(255,255,255,0.04);
+border:1px solid rgba(255,255,255,0.06);
+border-radius:16px;
+margin-bottom:12px;
+overflow:hidden;
+transition:.35s;
+}
+
+.faq-item:hover{
+box-shadow:0 10px 40px rgba(99,102,241,0.25);
+}
+
+.faq-question{
+padding:20px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+cursor:pointer;
+font-weight:600;
+font-size:16px;
+}
+
+.icon{
+width:28px;
+height:28px;
+border-radius:50%;
+background:linear-gradient(135deg,#6366f1,#a855f7);
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:16px;
+transition:.3s;
+}
+
+.faq-answer{
+max-height:0;
+overflow:hidden;
+padding:0 20px;
+color:#cbd5f5;
+transition:.4s;
+line-height:1.6;
+}
+
+.faq-item.active .faq-answer{
+max-height:220px;
+padding:0 20px 20px;
+}
+
+.faq-item.active .icon{
+transform:rotate(45deg);
+}
+
+.search{
+max-width:500px;
+margin:20px auto 30px auto;
+}
+
+.search input{
+width:100%;
+padding:14px 18px;
+border-radius:12px;
+border:1px solid #334155;
+background:#020617;
+color:white;
+outline:none;
+font-size:14px;
+transition:0.3s;
+}
+
+.search input::placeholder{
+color:#64748b;
+}
+
+.search input:focus{
+border-color:#6366f1;
+box-shadow:0 0 10px rgba(99,102,241,0.5);
+}
+
+.testi-profile{
+display:flex;
+align-items:center;
+gap:12px;
+margin-top:10px;
+justify-content:center;
+}
+
+.testi-photo{
+width:45px;
+height:45px;
+border-radius:50%;
+object-fit:cover;
+border:2px solid #6366f1;
+box-shadow:0 0 10px #6366f1;
+}
+
+.testi-name{
+font-size:14px;
+font-weight:600;
+color:#facc15;
+}
+
+/* ===== DISCOUNT STYLE ===== */
+
+.discount-badge{
+position:absolute;
+top:-12px;
+right:-10px;
+background:linear-gradient(90deg,#ef4444,#f97316);
+color:white;
+font-size:11px;
+font-weight:700;
+padding:6px 10px;
+border-radius:20px;
+box-shadow:0 0 15px #ef4444;
+animation:badgeShake 1.6s infinite;
+}
+
+.old-price{
+text-decoration:line-through;
+color:#94a3b8;
+font-size:14px;
+display:block;
+}
+
+.discount-price{
+color:#facc15;
+font-size:22px;
+font-weight:800;
+animation:priceGlow 1.5s infinite alternate;
+}
+
+/* animasi glow harga */
+
+@keyframes priceGlow{
+0%{
+text-shadow:0 0 5px #facc15;
+transform:scale(1);
+}
+100%{
+text-shadow:0 0 18px #facc15;
+transform:scale(1.06);
+}
+}
+
+/* animasi badge goyang */
+
+@keyframes badgeShake{
+0%{transform:rotate(0deg);}
+25%{transform:rotate(3deg);}
+50%{transform:rotate(-3deg);}
+75%{transform:rotate(3deg);}
+100%{transform:rotate(0deg);}
+}
+
+.hero-buttons{
+display:flex;
+justify-content:center;
+gap:14px;
+flex-wrap:wrap;
+margin-top:15px;
+}
+
+.btn-green{
+background:linear-gradient(90deg,#22c55e,#16a34a);
+box-shadow:0 0 15px #22c55e;
+}
+
+</style>
+
+
+</head>
+
+<body>
+
+<canvas id="particles"></canvas>
+
+<nav>
+<div class="logo">Zuniversz.id</div>
+</nav>
+
+<section class="hero">
+
+<div class="slider">
+
+<div class="slides" id="slides">
+
+<div class="slide">
+<img src="banner3.png">
+</div>
+
+<div class="slide">
+<img src="banner1.png">
+</div>
+
+<div class="slide">
+<img src="banner2.png">
+</div>
+
+<div class="slide">
+<img src="banner3.png">
+</div>
+
+<div class="slide">
+<img src="banner1.png">
+</div>
+
+</div>
+
+<div class="arrow left" onclick="prevSlide()">❮</div>
+<div class="arrow right" onclick="nextSlide()">❯</div>
+
+</div>
+
+<div class="dots">
+<span class="dot active"></span>
+<span class="dot"></span>
+<span class="dot"></span>
+</div>
+
+<h1>Zuniversz.id</h1>
+<p>Paket Jasteb & Uncheck Premium
+Tempat beli Jasteb & Uncheck No.1 di Indonesia 🇮🇩 – cepat, aman, dan harga termurah!</p>
+
+<div class="hero-buttons">
+
+<a href="#products" class="btn">
+Pilih Paket
+</a>
+
+<a href="https://whatsapp.com/channel/0029Vb46XGIJuyA5aCq0bg08"
+target="_blank"
+class="btn btn-green">
+📢 Testimoni Order
+</a>
+
+</div>
+
+<div style="margin-top:35px;color:#facc15;font-weight:600;">
+🔥 11.743 Paket Terjual
+</div>
+
+<div style="margin-top:8px;color:#eab308;font-size:14px;">
+⭐⭐⭐⭐⭐ 4.8/5 dari 2.927 pembeli
+</div>
+
+</section>
+
+<section class="products" id="products">
+
+<h2 class="section-title">Pilih Paket Anda</h2>
+
+<div class="grid">
+
+<div class="card">
+<img src="a.png">
+<div class="card-title">PAKET JASTEB/UNCHEK 5K</div>
+<div class="card-desc">KEUNTUNGAN: mendapatkan 25+ akun uncek</div>
+<div class="price">Rp 5.000</div>
+<button class="btn-buy" onclick="openModal('PAKET JASTEB/UNCHEK 5K','5.000')">Beli Sekarang</button>
+</div>
+
+<div class="card">
+<img src="b.png">
+<div class="card-title">PAKET JASTEB/UNCHEK 10K</div>
+<div class="card-desc">KEUNTUNGAN: mendapatkan 155+ akun uncek</div>
+<div class="price">Rp 10.000</div>
+<button class="btn-buy" onclick="openModal('PAKET JASTEB/UNCHEK 10K','10.000')">Beli Sekarang</button>
+</div>
+
+<div class="card">
+<img src="c.png">
+<div class="card-title">PAKET JASTEB/UNCHEK 20K</div>
+<div class="card-desc">KEUNTUNGAN: mendapatkan 499+ akun uncek</div>
+<div class="price">Rp 20.000</div>
+<button class="btn-buy" onclick="openModal('PAKET JASTEB/UNCHEK 20K','20.000')">Beli Sekarang</button>
+</div>
+
+<div class="card">
+<img src="d.png">
+<div class="card-title">PAKET MEMBERSIP MINGUAN VVIP 30K</div>
+<div class="card-desc">KEUNTUNGAN: mendapatkan uncek 24 jam seminggu</div>
+<div class="price">Rp 30.000</div>
+<button class="btn-buy" onclick="openModal('PAKET JASTEB/UNCHEK VVIP 30K','30.000')">Beli Sekarang</button>
+</div>
+
+<div class="card center-card best-deal">
+
+<div class="badge">🔥 BEST DEAL</div>
+<div class="discount-badge">DISKON 60%</div>
+<img src="e.png">
+<div class="card-title">ADMIN JASTEB/UNCHEK 100K</div>
+<div class="card-desc">𝗞𝗘𝗨𝗡𝗧𝗨𝗡𝗚𝗔𝗡:
+#DAPET AKSES WEB JASTEB
+#BISA JUALAN JASTEB/UNCHEK
+#UNCEK SEPUASNYA
+#RESS GACOR
+#AUTO PANEN STOK FF/ML
+#MENGHASILKAN (KALO NIAT)</div>
+<div class="price">
+<span class="old-price">Rp 100.000</span>
+<span class="discount-price">Rp 40.000</span>
+</div>
+
+<button class="btn-buy" onclick="openModal('ADMIN JASTEB/UNCHEK DISKON 40K','40.000')">
+Beli Sekarang
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="testimoni">
+
+<h2 class="section-title">Testimoni Pembeli</h2>
+
+<div class="grid">
+
+<div class="card">
+<div class="card-desc">"Gw kira hoak ternyata asli jir,walau gw beli cuma dapet polosan evo sih🗿."</div>
+<div class="price">- Pian</div>
+</div>
+
+<div class="card">
+<div class="card-desc">"Mantap bang amanah terus,btw maaf tadi spam lu nya slow respon sih."</div>
+<div class="price">- Rehan</div>
+</div>
+
+<div class="card">
+<div class="card-desc">"Tambahin varian paket nya bang gw mau beli yang sekalian 50K soalnya😁."</div>
+<div class="price">- Arul</div>
+</div>
+
+<div class="card">
+<div class="card-desc">"Mantap bang,btw lain kali kasih bonus ya hehehe."</div>
+<div class="price">- Indra</div>
+</div>
+
+<div class="card">
+<div class="card-desc">"Admin kikir jir minta bonus,cuma di kasih 1,gpp sih amanah terus min."</div>
+<div class="price">- Fahril</div>
+</div>
+
+</div>
+
+</section>
+
+<div id="qrisModal" class="modal">
+
+<div class="modal-content">
+
+<span class="close-btn" onclick="closeModal()">×</span>
+
+<h3 id="modalTitle"></h3>
+
+<p>Scan QRIS All Payments untuk pembayaran</p>
+
+<div id="modalPrice"></div>
+
+<img src="iqr.png" class="qr-image">
+
+<p>Setelah transfer, kirim bukti ke WhatsApp Admin</p>
+
+<button class="modal-btn" onclick="sendWA()">
+Kirim Bukti ke WA
+</button>
+
+</div>
+
+</div>
+<section class="faq">
+
+<h2 class="section-title">FAQ</h2>
+
+<div class="search">
+<input type="text" id="search" placeholder="Cari pertanyaan...">
+</div>
+
+<div class="faq-container">
+
+<div class="faq-item">
+<div class="faq-question">
+Apa itu Jasteb / Uncheck?
+<div class="icon">+</div>
+</div>
+<div class="faq-answer">
+Jasteb/unchek adalah akun hasil P dan bersifat hoki hokian pada saat mendapatkan nya
+</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question">
+APA FUNGSI ADMIN JASTEB/UNCHEK?
+<div class="icon">+</div>
+</div>
+<div class="faq-answer">
+Jika join admin jasteb maka kalian mendapatkan Semua akses web jasteb/uncek,bisa mendapatkan unchek unlimited dan kalian juga bisa bisa jualan jasteb/unchek seperti mimin😋
+</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question">
+Berapa lama proses order?
+<div class="icon">+</div>
+</div>
+<div class="faq-answer">
+Biasanya hanya beberapa menit tergantung antrian dan kondisi server [PALING LAMA 2×24JAM/2HARI]
+</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question">
+Apakah ada garansi?
+<div class="icon">+</div>
+</div>
+<div class="faq-answer">
+Kami informasikan juga bahwa sistem uncheck/jasteb ini bersifat gacha (acak), jadi semua tergantung hoki masing-masing ya kak 😊
+
+(NO GARANSI)
+Kalau kakak beruntung dan mendapatkan akun, alhamdulillah itu rezeki kakak 🙏
+Kalau belum mendapatkan, jangan berkecil hati ya kak, karena memang sistemnya acak. Kakak bisa coba lagi di kesempatan berikutnya, siapa tahu hoki di percobaan selanjutnya hehehe
+</div>
+</div>
+
+</div>
+
+</section>
+<footer>
+<p>© 2026 Zuniversz.id. All Rights Reserved.</p>
+<p>Hubungi: @zuniversz.id</p>
+</footer>
+
+<div class="shopee-popup" id="orderPopup" style="display:none;">
+<div class="popup-icon">🛒</div>
+<div id="popupText"></div>
+</div>
+
+<script>
+
+/* ===== SLIDER SUPER STABLE ===== */
+
+const slides = document.getElementById("slides")
+const slider = document.querySelector(".slider")
+const dots = document.querySelectorAll(".dot")
+
+let slideItems = document.querySelectorAll(".slide")
+let index = 1
+let startX = 0
+let currentX = 0
+let isDragging = false
+const gap = 14
+
+/* CLONE SLIDE UNTUK INFINITE */
+
+const firstClone = slideItems[0].cloneNode(true)
+const lastClone = slideItems[slideItems.length - 1].cloneNode(true)
+
+slides.appendChild(firstClone)
+slides.insertBefore(lastClone, slideItems[0])
+
+slideItems = document.querySelectorAll(".slide")
+
+function updateSlider(animate = true){
+
+if(animate){
+slides.style.transition = ".45s"
+}else{
+slides.style.transition = "none"
+}
+
+slides.style.transform =
+`translateX(calc(-${index} * (100% + ${gap}px)))`
+
+let realIndex = index - 1
+
+if(realIndex < 0) realIndex = dots.length - 1
+if(realIndex >= dots.length) realIndex = 0
+
+dots.forEach(d => d.classList.remove("active"))
+dots[realIndex].classList.add("active")
+
+}
+
+updateSlider(false)
+
+/* NEXT PREV */
+
+function nextSlide(){
+index++
+updateSlider()
+}
+
+function prevSlide(){
+index--
+updateSlider()
+}
+
+/* INFINITE FIX */
+
+slides.addEventListener("transitionend",()=>{
+
+if(index === slideItems.length - 1){
+index = 1
+updateSlider(false)
+}
+
+if(index === 0){
+index = slideItems.length - 2
+updateSlider(false)
+}
+
+})
+
+/* AUTO SLIDE */
+
+let autoSlide = setInterval(nextSlide,4000)
+
+/* TOUCH START */
+
+slider.addEventListener("touchstart",(e)=>{
+
+clearInterval(autoSlide)
+
+isDragging = true
+startX = e.touches[0].clientX
+currentX = startX
+
+})
+
+/* TOUCH MOVE */
+
+slider.addEventListener("touchmove",(e)=>{
+
+if(!isDragging) return
+
+currentX = e.touches[0].clientX
+let diff = currentX - startX
+
+slides.style.transition="none"
+
+slides.style.transform =
+`translateX(calc(-${index} * (100% + ${gap}px) + ${diff}px))`
+
+})
+
+/* TOUCH END */
+
+slider.addEventListener("touchend",()=>{
+
+isDragging = false
+
+let diff = currentX - startX
+
+if(Math.abs(diff) > 60){
+
+if(diff < 0){
+nextSlide()
+}else{
+prevSlide()
+}
+
+}else{
+updateSlider()
+}
+
+autoSlide = setInterval(nextSlide,4000)
+
+})
+
+/* MODAL + WA */
+
+let waText="";
+
+function openModal(paket,harga){
+
+document.getElementById("modalTitle").innerText=paket;
+document.getElementById("modalPrice").innerText="Rp "+harga;
+document.getElementById("qrisModal").style.display="flex";
+
+waText =
+"Halo admin Zuniversz.id\n\n"+
+"Saya sudah melakukan pembayaran dengan detail berikut:\n\n"+
+"📦 Paket: "+paket+"\n"+
+"💰 Harga: Rp "+harga+"\n\n"+
+"Saya lampirkan bukti pembayaran.\n"+
+"Mohon dicek dan diproses ya admin.\n\n"+
+"Terima kasih 🙏";
+
+
+}
+
+function closeModal(){
+document.getElementById("qrisModal").style.display="none";
+}
+
+function sendWA(){
+const url="https://wa.me/6287898540527?text="+encodeURIComponent(waText);
+window.open(url);
+}
+
+/* PARTICLES */
+
+const canvas=document.getElementById("particles");
+const ctx=canvas.getContext("2d");
+
+
+function resizeCanvas(){
+canvas.width = window.innerWidth;
+canvas.height = document.body.scrollHeight;
+}
+
+resizeCanvas();
+
+window.addEventListener("resize", resizeCanvas);
+
+let particles=[];
+
+for(let i=0;i<80;i++){
+particles.push({
+x:Math.random()*canvas.width,
+y:Math.random()*canvas.height,
+size:Math.random()*2,
+speedY:Math.random()*0.5
+});
+}
+
+function animateParticles(){
+
+ctx.clearRect(0,0,canvas.width,canvas.height);
+
+ctx.fillStyle="#6366f1";
+
+particles.forEach(p=>{
+
+ctx.beginPath();
+ctx.arc(p.x,p.y,p.size,0,Math.PI*2);
+ctx.fill();
+
+p.y+=p.speedY;
+
+if(p.y>canvas.height){
+p.y=0;
+p.x=Math.random()*canvas.width;
+}
+
+});
+
+requestAnimationFrame(animateParticles);
+
+}
+
+animateParticles();
+
+/* POPUP ORDER */
+
+const names=[
+"Rizko","Diko","Raka","Bims","Aldi","Fajar","Yoga","Ilhaa","Rendy","Daffa",
+"Rafi","Fikri","Arga","Zaki","Rian","Bagas","Rizal","Rama","Yusuf","Farhan",
+"Aditya","Andi","Bayu","Doni","Eko","Fahri","Galih","Hafiz","Irfan","Joko",
+"Krisna","Lukman","Miko","Nanda","Oki","Putra","Qori","Reza","Sandi","Tegar",
+"Umar","Vino","Wahyu","Yogi","Zidan","Asep","Bintang","Cahyo","Damar","Evan",
+"Fauzan","Gilang","Hendra","Indra","Jefri","Kevin","Lutfi","Maulana","Naufal","Omar",
+"Pratama","Rifki","Saputra","Taufik","Udin","Vicky","Wira","Yudha","Zulfikar","Abdul",
+"Bram","Candra","Dede","Erwin","Firman","Guntur","Hadi","Iqbal","Jamal","Kamal",
+"Luthfi","Miftah","Nizar","Ozan","Pandu","Qomar","Rendy","Sultan","Tomi","Ucup",
+"Varel","Wawan","Yasin","Zaky","Ari","Beni","Ciko","Doni","Ega","Fandi",
+
+"Agus","Akbar","Aldo","Alif","Alvin","Amar","Andre","Angga","Anwar","Ardi",
+"Arif","Arya","Bagus","Banyu","Bara","Bastian","Bima","Bobby","Bowo","Cahya",
+"Candra","Catur","Daffa","Damar","Danu","Darma","David","Deni","Dian","Didit",
+"Dika","Dimas","Dion","Eddy","Egi","Eka","Elang","Erik","Fadil","Fadli",
+"Faisal","Fakhri","Fandi","Farel","Faris","Fauzi","Ferry","Firmansyah","Fitra","Galang",
+"Gema","Gerry","Gilang","Guntur","Habib","Hafiz","Haikal","Hamzah","Haris","Hasan",
+"Herman","Hilman","Ibrahim","Ihsan","Ilham","Imam","Iqra","Irsyad","Ismail","Ivan",
+"Jabbar","Jafar","Jaya","Johan","Juli","Kamal","Karel","Kautsar","Kemas","Kenzo",
+"Kiki","Kris","Kurnia","Lazuardi","Leo","Mahesa","Malik","Maman","Marcel","Mario",
+"Marwan","Maulana","Mika","Miqdad","Mochamad","Mochammad","Mufid","Mukhlis","Nabil","Nadim",
+
+"Naufal","Nazar","Nico","Nino","Noval","Nur","Rafli","Rafsan","Ragil","Raihan",
+"Raka","Rangga","Rasyid","Rayhan","Rehan","Reno","Rian","Ridho","Rifal","Rijal",
+"Riko","Riski","Rival","Rizki","Robi","Rohman","Romi","Ronald","Roy","Rudi",
+"Rully","Ryan","Sadam","Said","Sakti","Salman","Samsul","Sandy","Satrio","Seno",
+"Setiawan","Sholeh","Sigit","Soleh","Subhan","Sulaiman","Surya","Syafiq","Syahrul","Syamsul",
+"Tama","Taufan","Teguh","Tio","Togar","Toni","Tri","Ubay","Ujang","Ulil",
+"Usman","Vicky","Vino","Wahdan","Wahyudi","Wawan","Widodo","Willy","Wira","Yahya",
+"Yanuar","Yogi","Yudha","Yunus","Yusuf","Zain","Zainal","Zaky","Zidan","Zulfikar"
+];
+
+const cities=[
+"Jakarta","Bandung","Surabaya","Medan","Makassar","Semarang","Yogyakarta","Bekasi","Tangerang","Depok",
+"Bogor","Malang","Solo","Balikpapan","Samarinda","Banjarmasin","Pontianak","Palembang","Pekanbaru","Padang",
+"Banda Aceh","Lampung","Batam","Manado","Kendari","Palu","Ambon","Jayapura","Kupang","Mataram",
+"Denpasar","Cirebon","Tasikmalaya","Garut","Purwokerto","Magelang","Salatiga","Tegal","Kudus","Jepara",
+"Pati","Blora","Ngawi","Madiun","Kediri","Jombang","Lamongan","Gresik","Pasuruan","Probolinggo",
+"Situbondo","Banyuwangi","Jember","Lumajang","Bondowoso","Sidoarjo","Karawang","Subang","Indramayu","Majalengka",
+"Kuningan","Sukabumi","Cianjur","Serang","Pandeglang","Lebak","Cilegon","Cimahi","Banjar","Parepare",
+"Bitung","Tomohon","Gorontalo","Ternate","Tidore","Sorong","Merauke","Biak","Timika","Nabire",
+"Bengkulu","Jambi","Prabumulih","Lubuklinggau","Pagar Alam","Singkawang","Tarakan","Tanjungpinang","Langsa","Lhokseumawe"
+];
+
+const products=[
+"PAKET JASTEB/UNCHEK 5K",
+"PAKET JASTEB/UNCHEK 10K",
+"PAKET JASTEB/UNCHEK 20K",
+"PAKET MEMBERSHIP VVIP 30K",
+"ADMIN JASTEB/UNCHEK 100K 🔥",
+"ADMIN JASTEB/UNCHEK 100K 🔥"
+];
+
+function randomTime(){
+const times=["baru saja","1 menit yang lalu","2 menit yang lalu","3 menit yang lalu"];
+return times[Math.floor(Math.random()*times.length)];
+}
+
+function showOrderPopup(){
+
+const popup=document.getElementById("orderPopup");
+const text=document.getElementById("popupText");
+
+const name=names[Math.floor(Math.random()*names.length)];
+const city=cities[Math.floor(Math.random()*cities.length)];
+const product=products[Math.floor(Math.random()*products.length)];
+
+const shortName=name.charAt(0)+"***"+name.charAt(name.length-1);
+
+text.innerHTML=
+"<b>"+shortName+"</b> dari "+city+"<br>"+
+"membeli "+product+"<br>"+
+"<small>"+randomTime()+"</small>";
+
+popup.style.display="flex";
+
+setTimeout(()=>{
+popup.style.display="none";
+},5000);
+
+}
+
+function popupLoop(){
+const delay=Math.floor(Math.random()*7000)+5000;
+setTimeout(()=>{
+showOrderPopup();
+popupLoop();
+},delay);
+}
+
+popupLoop();
+const faqItems=document.querySelectorAll(".faq-item")
+
+faqItems.forEach(item=>{
+
+item.querySelector(".faq-question").onclick=()=>{
+
+faqItems.forEach(i=>{
+if(i!==item){
+i.classList.remove("active")
+}
+})
+
+item.classList.toggle("active")
+
+}
+
+})
+
+document.getElementById("search").addEventListener("keyup",function(){
+
+let value=this.value.toLowerCase()
+let items=document.querySelectorAll(".faq-item")
+
+items.forEach(item=>{
+
+let text=item.innerText.toLowerCase()
+
+if(text.indexOf(value)>-1){
+item.style.display=""
+}else{
+item.style.display="none"
+}
+
+})
+
+})
+
+</script>
+
+</body>
+</html>
